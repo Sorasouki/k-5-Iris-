@@ -23,7 +23,7 @@ y[0:5]
 #create a new KNN model
 knn_cv = KNeighborsClassifier(n_neighbors=5)
 #train model with cv of kFold equal to the amount of data for each class
-kfolds = StratifiedKFold(n_splits=5, random_state=None)
+kfolds = StratifiedKFold(n_splits=50, random_state=None)
 cv_scores = cross_val_score(knn_cv, X, y, cv=kfolds)
 mean_cv_scores = mean(absolute(cv_scores))
 error_cv_scores = sqrt(mean(absolute(cv_scores)))
