@@ -1,5 +1,5 @@
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.model_selection import KFold
+from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import cross_val_score
 from numpy import mean, sqrt, absolute
 import pandas as pd
@@ -22,8 +22,8 @@ y[0:5]
 
 #create a new KNN model
 knn_cv = KNeighborsClassifier(n_neighbors=5)
-#train model with cv of kFold equal to the amount of data
-kfolds = KFold(n_splits=150, random_state=None)
+#train model with cv of kFold equal to the amount of data for each class
+kfolds = StratifiedKFold(n_splits=5, random_state=None)
 cv_scores = cross_val_score(knn_cv, X, y, cv=kfolds)
 mean_cv_scores = mean(absolute(cv_scores))
 error_cv_scores = sqrt(mean(absolute(cv_scores)))
