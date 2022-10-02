@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 
 #read in the data using pandas
-df = pd.read_csv('iris.csv')
+df = pd.read_csv('https://github.com/achmatim/data-mining/blob/main/Dataset/iris.csv?raw=true')
 pd.set_option('display.max_columns', None)
 #check data has been read in properly
 df.head()
